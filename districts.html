@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>District Network Directory | CEDOK Karnataka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Kannada:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement">
+    <div class="container announcement-in">
+      <div class="announcement-text">
+        <span class="announcement-badge">Government of Karnataka</span>
+        <span>CEDOK District Level Network across 31 Districts of Karnataka</span>
+      </div>
+      <div class="announcement-links">
+        <button id="langToggleBtn" class="lang-btn">ಕನ್ನಡ</button>
+        <a target="_blank" href="https://cedokdwd.karnataka.gov.in/en">Official Portal ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="logo-icon">C</span>
+        <span class="brand-text">
+          <b>CEDOK</b>
+          <small>Center for Entrepreneurship Development of Karnataka</small>
+        </span>
+      </a>
+      <button class="hamb" aria-label="Menu">☰</button>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a class="active" href="districts.html">Districts</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a class="pill-nav" href="registration.html">Register ↗</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger-btn" aria-label="Open search">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span>Search</span>
+          <kbd>⌘K</kbd>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <label>DISTRICT NETWORK</label>
+        <h1>Find your local CEDOK district office.</h1>
+        <p>Explore all 31 districts of Karnataka. Click any district card to view official office address, helpline numbers, email contact, and local industrial focus area.</p>
+      </div>
+    </section>
+
+    <!-- District Search & Filter Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Region Filter Pills -->
+        <div class="filter-bar">
+          <button class="filter-btn district-filter active" data-region="all">All 31 Districts</button>
+          <button class="filter-btn district-filter" data-region="Kittur Karnataka">Kittur Karnataka</button>
+          <button class="filter-btn district-filter" data-region="Kalyana Karnataka">Kalyana Karnataka</button>
+          <button class="filter-btn district-filter" data-region="Karavali">Karavali (Coastal)</button>
+          <button class="filter-btn district-filter" data-region="Malenadu">Malenadu</button>
+          <button class="filter-btn district-filter" data-region="South Karnataka">South Karnataka / Old Mysuru</button>
+        </div>
+
+        <!-- Live Search Input -->
+        <div class="search-box-wrap">
+          <svg class="search-box-icon" width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input id="districtSearch" type="search" class="search-box-input" placeholder="Search a district or industry focus... e.g. Dharwad, Belagavi, Mysuru, Spices, Food">
+        </div>
+
+        <!-- Dynamic District Grid -->
+        <div class="district-grid" id="districtGrid"></div>
+
+        <!-- Empty State -->
+        <div id="emptyDistrict" style="display: none; text-align: center; padding: 60px 20px; color: var(--slate-500);">
+          <svg style="margin: 0 auto 12px; color: var(--slate-400);" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h3 style="font-size: 1.15rem; color: var(--navy-deep); margin-bottom: 6px;">No matching district found</h3>
+          <p style="font-size: 0.875rem;">Try refining your search keyword or selecting a different regional filter pill.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notice Bar -->
+    <section class="notice-bar">
+      <div class="container notice-in">
+        <div>
+          <strong>Need headquarters contact details?</strong>
+          <p style="font-size: 0.875rem; color: var(--slate-600); margin: 2px 0 0;">CEDOK Main Office: Belur Industrial Area, Dharwad - 580011. Phone: 0836-2486450.</p>
+        </div>
+        <a class="btn primary" target="_blank" href="https://cedokdwd.karnataka.gov.in/en">Official Website Contact ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="logo-icon">C</span>
+          <span class="brand-text">
+            <b>CEDOK</b>
+            <small>Center for Entrepreneurship Development of Karnataka</small>
+          </span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="programmes.html">Programmes</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="resources.html">Resources</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect Media</h4>
+        <a target="_blank" href="https://www.instagram.com/cedok_media/">Instagram</a>
+        <a target="_blank" href="https://t.me/c_e_d_o_k">Telegram</a>
+      </div>
+      <div class="footer-col">
+        <h4>Official</h4>
+        <a target="_blank" href="https://cedokdwd.karnataka.gov.in/en">Official Website ↗</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <span>© <span class="year"></span> CEDOK Karnataka.</span>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
