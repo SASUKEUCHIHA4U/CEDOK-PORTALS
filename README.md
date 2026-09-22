@@ -1,36 +1,53 @@
-# CEDOK Portal — Modernized Static Web Application
+# CEDOK Portal
 
-An enhanced, high-performance, and feature-rich static portal for **CEDOK** (Center for Entrepreneurship Development of Karnataka, Government of Karnataka autonomous body).
+A responsive static website for the **Centre for Entrepreneurship Development of Karnataka (CEDOK)**. The portal presents CEDOK's institutional information, entrepreneurship programmes, and registration guidance.
 
-## Key Features & Senior Developer Polish
+## Features
 
-- **Modern Glassmorphism Aesthetic**: Redesigned UI featuring custom CSS design variables, glassmorphism cards, smooth animations, curated typography (`Inter` & `Noto Sans Kannada`), and responsive layouts.
-- **Global Search Modal (`Cmd/Ctrl + K`)**: Instant keyboard-driven global search across programmes, district directory, resources, and business opportunities.
-- **Enhanced District Directory (31 Districts)**: Comprehensive filterable dataset of all 31 Karnataka districts categorized by region (Kittur Karnataka, Kalyana Karnataka, Karavali, Malenadu, South Karnataka), with rich district office detail modals.
-- **Interactive Programme Quiz**: 3-step recommendation wizard guiding aspiring entrepreneurs to EDP, EAP, or Skill Training.
-- **Resource Document Previewer**: Live modal previewer for downloadable PDF guides (`Business Idea Checklist`, `Project Planning Worksheet`, `Market Research Starter`, `Business Plan Outline`).
-- **Bilingual Interface Toggle (English / ಕನ್ನಡ)**: Instant language mode switcher for authentic Karnataka state portal experience.
-- **Animated Statistics Counter**: Scroll-triggered counting animation highlighting key institutional metrics.
-- **SEO & Accessibility**: Semantic HTML5 markup, ARIA roles, viewport settings, and keyboard accessibility.
+- Responsive government-portal-style layout for desktop and mobile screens.
+- Direct navigation links to Home, About Us, Programmes & EDP, and Registration. The navigation does not use dropdown menus.
+- Global search modal opened by the Search button or `Ctrl + K` / `Cmd + K`.
+- Programme Finder quiz with recommendations for EDP, EAP, and skill training.
+- Programme filters on the Programmes page.
+- English / Kannada language toggle with the selected language stored locally in the browser.
+- Accessibility font-size controls and keyboard-friendly navigation.
+- Animated homepage statistics and modal/toast UI helpers.
+- Registration link to the official CEDOK Google Form.
+
+## Pages
+
+- `index.html` — Homepage, programme pathways, statistics, and calls to action.
+- `about.html` — CEDOK overview, mission, objectives, and institutional information.
+- `programmes.html` — EDP, EAP, and skill-training cards, filters, comparison table, and quiz launcher.
+- `registration.html` — Registration instructions, quiz access, and official form link.
 
 ## File Structure
 
 ```text
 cedok-portal/
 ├── index.html            # Landing page with stats, pathway cards, and quiz launcher
-├── programmes.html       # EDP/EAP/Skill training with filters and comparison matrix
-├── opportunities.html     # Sector opportunities & 6-point project feasibility check
-├── districts.html        # Interactive 31-district search & regional filter directory
-├── resources.html        # PDF worksheet guides with outline previewer & downloads
-├── about.html            # Mission, institutional history timeline & core objectives
-├── registration.html     # Step-by-step registration guide & official form link
+├── about.html            # Institutional overview and mission
+├── programmes.html       # Training programmes, filters, and comparison table
+├── registration.html     # Registration guidance and official form access
 ├── assets/
-│   ├── style.css         # Modern CSS design system & responsive media queries
-│   ├── app.js            # Modular ES6 client engine (Search, Quiz, Districts, Modals)
-│   └── *.pdf             # Starter PDF worksheets and guides
+│   ├── app.js            # Navigation, search, quiz, filters, language, and accessibility logic
+│   ├── style.css         # Shared design system and responsive styling
+│   ├── logo.jpeg         # CEDOK branding asset
+│   ├── business-idea-checklist.pdf       # Reference document asset
+│   ├── project-planning-worksheet.pdf    # Reference document asset
+│   ├── market-research-starter.pdf       # Reference document asset
+│   └── business-plan-outline.pdf         # Reference document asset
 └── README.md             # Project documentation
 ```
 
-## Local Development & Deployment
+## Local Development
 
-No build tools or servers are required. Open `index.html` directly in any web browser or host on GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
+No build tools or package installation are required. Open `index.html` directly in a browser, or run a local static server from the project folder:
+
+```powershell
+py -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+The site can also be deployed as static files to GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
