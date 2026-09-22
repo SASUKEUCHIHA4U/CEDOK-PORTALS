@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgrammeQuiz();
   initResourcePreview();
   initLanguageToggle();
+  initAccessibilityControls();
+  initLoginHandler();
   initStatsCounter();
   updateCopyrightYear();
 });
@@ -80,20 +82,92 @@ const SEARCH_INDEX = [
 
 function initNavigation() {
   const hamb = document.querySelector(".hamb");
-  const menu = document.querySelector(".menu");
+  const menu = document.querySelector(".gov-nav-bar .menu, .menu");
 
   if (hamb && menu) {
-    hamb.addEventListener("click", () => {
+    hamb.addEventListener("click", (e) => {
+      e.stopPropagation();
       const isOpen = menu.classList.toggle("open");
       hamb.setAttribute("aria-expanded", isOpen);
-      hamb.textContent = isOpen ? "✕" : "☰";
     });
 
-    document.querySelectorAll(".menu a").forEach(link => {
+    document.querySelectorAll(".dropdown-menu a").forEach(link => {
       link.addEventListener("click", () => {
         menu.classList.remove("open");
-        if (hamb) hamb.textContent = "☰";
       });
+    });
+  }
+
+  // Mobile dropdown toggling on click
+  document.querySelectorAll(".has-dropdown > a").forEach(parentLink => {
+    parentLink.addEventListener("click", (e) => {
+      if (window.innerWidth <= 992) {
+        e.preventDefault();
+        const parentLi = parentLink.parentElement;
+        parentLi.classList.toggle("open");
+      }
+    });
+  });
+}
+
+function initAccessibilityControls() {
+  const fontDec = document.getElementById("fontDecrease");
+  const fontReset = document.getElementById("fontReset");
+  const fontInc = document.getElementById("fontIncrease");
+
+  if (fontDec && fontReset && fontInc) {
+    const buttons = [fontDec, fontReset, fontInc];
+    
+    fontDec.addEventListener("click", () => {
+      document.documentElement.style.fontSize = "14.5px";
+      setActiveFontBtn(fontDec, buttons);
+      showToast("Font size: Small (A-)");
+    });
+
+    fontReset.addEventListener("click", () => {
+      document.documentElement.style.fontSize = "16px";
+      setActiveFontBtn(fontReset, buttons);
+      showToast("Font size: Default (A)");
+    });
+
+    fontInc.addEventListener("click", () => {
+      document.documentElement.style.fontSize = "17.5px";
+      setActiveFontBtn(fontInc, buttons);
+      showToast("Font size: Large (A+)");
+    });
+  }
+}
+
+function setActiveFontBtn(activeBtn, allButtons) {
+  allButtons.forEach(b => b.classList.remove("active"));
+  activeBtn.classList.add("active");
+}
+
+function initLoginHandler() {
+  const loginBtn = document.getElementById("loginBtn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const loginHtml = `
+        <div style="text-align: center; padding: 10px 0;">
+          <div style="width: 56px; height: 56px; background: #eff6ff; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 16px;">
+            <svg width="28" height="28" fill="none" stroke="#1d4ed8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 8px;">CEDOK Officer Sign In</h3>
+          <p style="font-size: 0.875rem; color: var(--slate-600); margin-bottom: 24px;">Official portal access for CEDOK administrators, district industrial officers, and trainers.</p>
+          <form onsubmit="event.preventDefault(); showToast('Redirecting to Karnataka SSO Service...'); closeModal();">
+            <div style="margin-bottom: 16px; text-align: left;">
+              <label style="font-size: 0.8125rem; font-weight: 700; color: var(--slate-700); display: block; margin-bottom: 6px;">KGID / Government Email</label>
+              <input type="text" class="search-box-input" style="padding-left: 14px;" placeholder="officer@karnataka.gov.in" required>
+            </div>
+            <div style="margin-bottom: 24px; text-align: left;">
+              <label style="font-size: 0.8125rem; font-weight: 700; color: var(--slate-700); display: block; margin-bottom: 6px;">Password</label>
+              <input type="password" class="search-box-input" style="padding-left: 14px;" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn primary full">Login to Officer Dashboard →</button>
+          </form>
+        </div>
+      `;
+      showModal("CEDOK Department Login", loginHtml);
     });
   }
 }
