@@ -19,14 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 
 const SEARCH_INDEX = [
-  { title: "Entrepreneurship Development Programme (EDP)", type: "Programme", link: "programmes.html#edp", desc: "Structured 2 to 6-week training for aspiring entrepreneurs." },
-  { title: "Entrepreneurship Awareness Programme (EAP)", type: "Programme", link: "programmes.html#eap", desc: "1 to 3-day orientation into business opportunities." },
-  { title: "Skill & Business Inputs Training", type: "Programme", link: "programmes.html#training", desc: "Technical & domain-specific business input sessions." },
-  { title: "1-Day Motivation Camp", type: "Programme", link: "programmes.html#motivation", desc: "Inspiring one-day camp for aspiring entrepreneurs." },
-  { title: "3-Day Awareness Programme (EAP)", type: "Programme", link: "programmes.html#awareness", desc: "3-day orientation into entrepreneurship and business basics." },
-  { title: "10-Day EDP Training", type: "Programme", link: "programmes.html#edp", desc: "Intensive 10-day Entrepreneurship Development Programme." },
-  { title: "Sector Specific EDP (30 Days)", type: "Programme", link: "programmes.html#sector", desc: "Sector-focused 30-day advanced EDP training." },
-  { title: "Management Development Programme (MDP)", type: "Programme", link: "programmes.html#mdp", desc: "Management and leadership development for entrepreneurs." }
+  { title: "Register for CEDOK training", type: "Registration", link: "registration.html", desc: "Open the official registration form and apply for the latest training batches." },
+  { title: "Official CEDOK website", type: "Portal", link: "https://cedokdwd.karnataka.gov.in/en", desc: "Visit the state government portal for official updates and details." }
 ];
 
 /* ==========================================================================
@@ -144,7 +138,7 @@ function openSearchModal() {
     <div style="margin-bottom: 20px;">
       <div class="search-box-wrap" style="margin-bottom: 12px;">
         <svg class="search-box-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input type="search" id="globalSearchInput" class="search-box-input" placeholder="Search programmes..." autofocus>
+        <input type="search" id="globalSearchInput" class="search-box-input" placeholder="Search portal..." autofocus>
       </div>
       <div id="globalSearchResults" style="max-height: 340px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
         ${renderSearchItems(SEARCH_INDEX)}
@@ -298,8 +292,6 @@ const KANNADA_MAP = {
   "Your business journey starts with knowledge.": "ನಿಮ್ಮ ಉದ್ಯಮದ ಪಯಣ ಜ್ಞಾನದಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.",
   "Learn • Prepare • Start": "ಕಲಿಯಿರಿ • ಸಿದ್ಧರಾಗಿ • ಪ್ರಾರಂಭಿಸಿ",
   "Home": "ಮುಖ್ಯ ಪುಟ",
-  "Programmes": "ಕಾರ್ಯಕ್ರಮಗಳು",
-  "About": "ನಮ್ಮ ಬಗ್ಗೆ",
   "Register ↗": "ನೋಂದಣಿ ↗"
 };
 
