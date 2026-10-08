@@ -312,6 +312,7 @@ function initLanguageToggle() {
 
 function applyLanguage(isKannada) {
   const langBtn = document.getElementById("langToggleBtn");
+  document.documentElement.lang = isKannada ? "kn" : "en";
   if (langBtn) langBtn.textContent = isKannada ? "English" : "ಕನ್ನಡ";
 
   document.querySelectorAll("[data-kn]").forEach(el => {
